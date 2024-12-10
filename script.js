@@ -14,7 +14,7 @@ function verificarCodigo() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': "SIPANDTEAKEY"
+      // 'x-api-key': "SIPANDTEAKEY"
     },
     body: JSON.stringify({
       code: codigoIngresado
