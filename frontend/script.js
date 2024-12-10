@@ -63,10 +63,13 @@ function enviarRespuesta(decision) {
       const videoSource = document.getElementById('bg-video-source');
   
       if (decision === 'aceptar') {
-        videoSource.src = 'bg2.mp4'; // Change to background 1
+        videoSource.src = 'bg3.mp4'; // Change to background 1
       } else if (decision === 'rechazar') {
-        videoSource.src = 'bg3.mp4'; // Change to background 2
+        videoSource.src = 'bg2.mp4'; // Change to background 2
       }
+      const video = document.getElementById('background-video');
+      video.load();
+      video.play(); // Start playing the new video
     }
   })
   .catch(error => {
