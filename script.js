@@ -19,7 +19,11 @@ function verificarCodigo() {
 }
 
 function cargarCodigos() {
-  fetch(codeUrl)
+  fetch(codeUrl,{
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
+    }})
     .then(response => response.json())
     .then(data => {
       codigosValidos = data;
@@ -44,6 +48,7 @@ function enviarRespuesta(decision) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
     },
     body: JSON.stringify({
       decision: decision,
