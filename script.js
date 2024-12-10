@@ -59,7 +59,7 @@ function enviarRespuesta(decision) {
       document.getElementById('respuesta').style.display = 'none';
     
       // Show "Gracias" message
-      document.getElementById('gracias-message').style.display = 'block';
+      document.getElementById('gracias-message').style.display = 'flex';
       const videoSource = document.getElementById('bg-video-source');
   
       if (decision === 'aceptar') {

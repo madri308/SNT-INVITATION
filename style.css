@@ -116,20 +116,12 @@ button:hover {
   font-size: 1.2em;
   margin: 10px 0;
   text-transform: uppercase !important;
-  text-shadow: -1px 1px 0 #000,
-                         1px 1px 0 #000,
-                         1px -1px 0 #000,
-                         -1px -1px 0 #000;
 }
 
 /* Extra message style */
 #extra-text {
   font-size: 0.4em;
   margin-top: 10px;
-  text-shadow: -1px 1px 0 #000,
-                         1px 1px 0 #000,
-                         1px -1px 0 #000,
-                         -1px -1px 0 #000;
 }
 
 #title {
