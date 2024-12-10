@@ -94,9 +94,8 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 24px;
+  font-size: 1.2em;
   color: white;
-  font-weight: bold;
   z-index: 10; /* Ensure it's above the background */
   text-align: center;
   padding: 20px;
@@ -108,14 +107,23 @@ button:hover {
 
 /* Event info styles */
 #event-info {
-  font-size: 20px;
+  font-size: 1.2em;
   margin: 10px 0;
+  text-transform: uppercase !important;
+  text-shadow: -1px 1px 0 #000,
+                         1px 1px 0 #000,
+                         1px -1px 0 #000,
+                         -1px -1px 0 #000;
 }
 
 /* Extra message style */
 #extra-text {
-  font-size: 16px;
+  font-size: 0.4em;
   margin-top: 10px;
+  text-shadow: -1px 1px 0 #000,
+                         1px 1px 0 #000,
+                         1px -1px 0 #000,
+                         -1px -1px 0 #000;
 }
 
 #mensaje-error,
