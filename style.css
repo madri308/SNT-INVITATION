@@ -90,6 +90,10 @@ button:hover {
 }
 
 #gracias-message {
+  display: flex !important;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -99,10 +103,12 @@ button:hover {
   z-index: 10; /* Ensure it's above the background */
   text-align: center;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.226); /* Semi-transparent background */
   border-radius: 10px;
   width: 80%;
   max-width: 400px;
+  height: 100%;
+  gap: 30%;
 }
 
 /* Event info styles */
@@ -124,6 +130,10 @@ button:hover {
                          1px 1px 0 #000,
                          1px -1px 0 #000,
                          -1px -1px 0 #000;
+}
+
+#title {
+  font-size: 2em;
 }
 
 #mensaje-error,

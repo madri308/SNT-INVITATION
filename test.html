@@ -15,24 +15,7 @@
     </video>
   </div>
 
-  <!-- Contenido de la página -->
-  <div class="container">
-    <div id="codigo-section">
-      <h1 class="glow">¿Quieres ser parte de SNT 003?</h1>
-      <input type="text" id="codigo" placeholder="Código Secreto">
-      <button onclick="verificarCodigo()">Ingresar</button>
-      <div id="mensaje-error" style="display:none; color:red;">
-        <p>Código incorrecto. Intenta de nuevo.</p>
-      </div>
-    </div>
-    
-    <div id="respuesta" style="display:none;">
-      <p>¿Aceptar la invitación?</p>
-      <button onclick="enviarRespuesta('aceptar')">Aceptar</button>
-      <button onclick="enviarRespuesta('rechazar')">Rechazar</button>
-    </div>
-  </div>
-  <div class="info-container" id="gracias-message" style="display:none;">
+  <div class="info-container" id="gracias-message">
       <p>Gracias</p>
       <p id="event-info">
         <strong id="title">SNT 003</strong><br>
