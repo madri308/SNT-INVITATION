@@ -1,37 +1,29 @@
-let codigosValidos = []; 
+let codigosValidos = [];
 const codigosUrl = 'https://raw.githubusercontent.com/madri308/SNT-INVITATION/main/codigos.txt';
 
 const apiUrl = 'https://hidden-harbor-87161-dd9f6998dbed.herokuapp.com';
-const codeUrl = apiUrl+'/api/codes';
-const mailUrl = apiUrl+'/api/decision';
+const codeUrl = apiUrl + '/api/codes';
+const mailUrl = apiUrl + '/api/decision';
 
 // Verifica si el código ingresado es válido
 function verificarCodigo() {
   const codigoIngresado = document.getElementById('codigo').value.trim();
-  
-  // if (codigosValidos.includes(codigoIngresado)) {
-  //   document.getElementById('respuesta').style.display = 'block';
-  //   document.getElementById('mensaje-error').style.display = 'none';
-  // } else {
-  //   document.getElementById('mensaje-error').style.display = 'block';
-  //   document.getElementById('respuesta').style.display = 'none';
-  // }
 
-    // Send POST request with decision to backend
-    fetch(mailUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${"SIPANDTEAKEY"}`
-      },
-      body: JSON.stringify({
-        code: codigoIngresado
-      }),
-    })
+  // Send POST request with decision to backend
+  fetch(codeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
+    },
+    body: JSON.stringify({
+      code: codigoIngresado
+    }),
+  })
     .then(response => response.json())
     .then(data => {
       if (data.message) {
-        if(data.message === "correcto"){
+        if (data.message === "correcto") {
           document.getElementById('respuesta').style.display = 'block';
           document.getElementById('mensaje-error').style.display = 'none';
         } else {
@@ -42,21 +34,6 @@ function verificarCodigo() {
     })
     .catch(error => {
       console.error('Error sending decision:', error);
-    });
-}
-
-function cargarCodigos() {
-  fetch(codeUrl,{
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
-    }})
-    .then(response => response.json())
-    .then(data => {
-      codigosValidos = data;
-    })
-    .catch(error => {
-      console.error('Error al cargar los códigos:', error);
     });
 }
 
@@ -81,34 +58,29 @@ function enviarRespuesta(decision) {
       code: codigoIngresado
     }),
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.message) {
-      console.log(data.message);  // For debugging
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        console.log(data.message);  // For debugging
 
-      document.getElementById('codigo-section').style.display = 'none';
-      document.getElementById('respuesta').style.display = 'none';
-    
-      // Show "Gracias" message
-      document.getElementById('gracias-message').style.display = 'flex';
-      const videoSource = document.getElementById('bg-video-source');
-  
-      if (decision === 'aceptar') {
-        videoSource.src = 'bg4.mp4'; // Change to background 1
-      } else if (decision === 'rechazar') {
-        videoSource.src = 'bg2.mp4'; // Change to background 2
+        document.getElementById('codigo-section').style.display = 'none';
+        document.getElementById('respuesta').style.display = 'none';
+
+        // Show "Gracias" message
+        document.getElementById('gracias-message').style.display = 'flex';
+        const videoSource = document.getElementById('bg-video-source');
+
+        if (decision === 'aceptar') {
+          videoSource.src = 'bg4.mp4'; // Change to background 1
+        } else if (decision === 'rechazar') {
+          videoSource.src = 'bg2.mp4'; // Change to background 2
+        }
+        const video = document.getElementById('background-video');
+        video.load();
+        video.play(); // Start playing the new video
       }
-      const video = document.getElementById('background-video');
-      video.load();
-      video.play(); // Start playing the new video
-    }
-  })
-  .catch(error => {
-    console.error('Error sending decision:', error);
-  });
+    })
+    .catch(error => {
+      console.error('Error sending decision:', error);
+    });
 }
-
-
-window.onload = function() {
-  cargarCodigos();
-};
