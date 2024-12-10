@@ -14,7 +14,7 @@ function verificarCodigo() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
+      'x-api-key': "SIPANDTEAKEY"
     },
     body: JSON.stringify({
       code: codigoIngresado
