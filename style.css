@@ -1,75 +1,79 @@
 /* Asegurarse de que el video cubra toda la pantalla */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Pone el video detrás del contenido */
-  }
-  
-  #background-video {
-    object-fit: cover; /* Asegura que el video cubra toda la pantalla sin perder calidad */
-    width: 100%;
-    height: 100%;
-    filter: grayscale(100%);
-  }
-  
-  /* Estilos para el contenido */
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  h1 {
-    font-size: 3em;
-    margin-bottom: 5px;
-    font-family:  Verdana, sans-serif, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -5px;
-  }
-  
-p{
-    font-family:  Verdana, sans-serif, sans-serif;
-    text-transform: lowercase;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-  input, button {
-    font-size: 1.2em;
-    padding: 10px;
-    margin: 10px;
-    background-color: rgba(0, 0, 0, 0.075);
-    border: none !important;
-  }
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Pone el video detrás del contenido */
+}
 
-  input:focus{
-    border: none !important;
-  }
-  
-  button {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.075);
-    color: white;
-    border: none;
-  }
-  
-  button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  .glow {
+#background-video {
+  object-fit: cover;
+  /* Asegura que el video cubra toda la pantalla sin perder calidad */
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+}
+
+/* Estilos para el contenido */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 5px;
+  font-family: Verdana, sans-serif, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+}
+
+p {
+  font-family: Verdana, sans-serif, sans-serif;
+  text-transform: lowercase;
+}
+
+input,
+button {
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.075);
+  border: none !important;
+}
+
+input:focus {
+  border: none !important;
+}
+
+button {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.075);
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.glow {
   color: #fff;
   text-align: center;
   animation: glow 1s ease-in-out infinite alternate;
@@ -79,7 +83,7 @@ p{
   from {
     text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #959771, 0 0 35px #959771, 0 0 45px #959771, 0 0 55px #959771;
   }
-  
+
   to {
     text-shadow: 0 0 10px #fff, 0 0 25px #959771, 0 0 35px #959771, 0 0 45px #959771, 0 0 55px #959771, 0 0 65px #959771;
   }
@@ -90,13 +94,32 @@ p{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 36px;
+  font-size: 24px;
   color: white;
   font-weight: bold;
   z-index: 10; /* Ensure it's above the background */
   text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
 }
 
-#mensaje-error, #respuesta, #gracias-message {
+/* Event info styles */
+#event-info {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+/* Extra message style */
+#extra-text {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#mensaje-error,
+#respuesta,
+#gracias-message {
   display: none;
 }
