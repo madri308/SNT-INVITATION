@@ -9,13 +9,40 @@ const mailUrl = apiUrl+'/api/decision';
 function verificarCodigo() {
   const codigoIngresado = document.getElementById('codigo').value.trim();
   
-  if (codigosValidos.includes(codigoIngresado)) {
-    document.getElementById('respuesta').style.display = 'block';
-    document.getElementById('mensaje-error').style.display = 'none';
-  } else {
-    document.getElementById('mensaje-error').style.display = 'block';
-    document.getElementById('respuesta').style.display = 'none';
-  }
+  // if (codigosValidos.includes(codigoIngresado)) {
+  //   document.getElementById('respuesta').style.display = 'block';
+  //   document.getElementById('mensaje-error').style.display = 'none';
+  // } else {
+  //   document.getElementById('mensaje-error').style.display = 'block';
+  //   document.getElementById('respuesta').style.display = 'none';
+  // }
+
+    // Send POST request with decision to backend
+    fetch(mailUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${"SIPANDTEAKEY"}`
+      },
+      body: JSON.stringify({
+        code: codigoIngresado
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        if(data.message === "correcto"){
+          document.getElementById('respuesta').style.display = 'block';
+          document.getElementById('mensaje-error').style.display = 'none';
+        } else {
+          document.getElementById('mensaje-error').style.display = 'block';
+          document.getElementById('respuesta').style.display = 'none';
+        }
+      }
+    })
+    .catch(error => {
+      console.error('Error sending decision:', error);
+    });
 }
 
 function cargarCodigos() {
@@ -27,7 +54,6 @@ function cargarCodigos() {
     .then(response => response.json())
     .then(data => {
       codigosValidos = data;
-      console.log('Códigos cargados:', codigosValidos); // For debugging
     })
     .catch(error => {
       console.error('Error al cargar los códigos:', error);
