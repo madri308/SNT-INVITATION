@@ -33,3 +33,14 @@ function enviarRespuesta(respuesta) {
   alert("Tu respuesta ha sido registrada correctamente.");
   location.reload(); // Recarga la página para resetear el proceso
 }
+
+window.onload = function() {
+    var video = document.getElementById("background-video");
+  
+    // Verificamos si el video existe y luego intentamos reproducirlo
+    if (video) {
+      video.play().catch(function(error) {
+        console.error("Error al intentar reproducir el video:", error);
+      });
+    }
+  };
