@@ -12,7 +12,7 @@ function verificarCodigo() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': process.env.API_KEY
+      'x-api-key': "SIPANDTEAKEY"
     },
     body: JSON.stringify({
       code: codigoIngresado
@@ -49,7 +49,7 @@ function enviarRespuesta(decision) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': process.env.API_KEY
+      'x-api-key': "SIPANDTEAKEY"
     },
     body: JSON.stringify({
       decision: decision,
