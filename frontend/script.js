@@ -54,7 +54,19 @@ function enviarRespuesta(decision) {
   .then(data => {
     if (data.message) {
       console.log(data.message);  // For debugging
-      alert('Your decision has been sent!');
+
+      document.getElementById('codigo-section').style.display = 'none';
+      document.getElementById('respuesta').style.display = 'none';
+    
+      // Show "Gracias" message
+      document.getElementById('gracias-message').style.display = 'block';
+      const videoSource = document.getElementById('bg-video-source');
+  
+      if (decision === 'aceptar') {
+        videoSource.src = 'bg2.mp4'; // Change to background 1
+      } else if (decision === 'rechazar') {
+        videoSource.src = 'bg3.mp4'; // Change to background 2
+      }
     }
   })
   .catch(error => {
