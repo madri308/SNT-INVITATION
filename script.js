@@ -1,4 +1,5 @@
-const codigosValidos = ["ABC123", "DJX789"]; // Puedes agregar más códigos a esta lista
+let codigosValidos = []; 
+const codigosUrl = 'https://raw.githubusercontent.com/madri308/SNT-INVITATION/main/codigos.txt';
 
 // Verifica si el código ingresado es válido
 function verificarCodigo() {
@@ -32,4 +33,31 @@ function enviarRespuesta(respuesta) {
   // Redirigir o mostrar un mensaje de éxito
   alert("Tu respuesta ha sido registrada correctamente.");
   location.reload(); // Recarga la página para resetear el proceso
-}
+} 
+
+function cargarCodigos() {
+    fetch(codigosUrl)
+      .then(response => response.text())
+      .then(data => {
+        // Convertir el contenido del archivo a una lista de códigos
+        codigosValidos = data.split('\n').map(codigo => codigo.trim());
+        console.log("Códigos cargados:", codigosValidos);  // Para verificar que se han cargado correctamente
+      })
+      .catch(error => {
+        console.error("Error al cargar el archivo de códigos:", error);
+      });
+  }
+
+
+  window.onload = function() {
+    cargarCodigos();
+    console.log(codigosValidos)
+    var video = document.getElementById("background-video");
+  
+    // Verificar si el video existe y reproducirlo
+    if (video) {
+      video.play().catch(function(error) {
+        console.error("Error al intentar reproducir el video:", error);
+      });
+    }
+  };

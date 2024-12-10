@@ -34,19 +34,32 @@ body, html {
   
   h1 {
     font-size: 3em;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    font-family:  Verdana, sans-serif, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -5px;
   }
   
+p{
+    font-family:  Verdana, sans-serif, sans-serif;
+    text-transform: lowercase;
+}
+
   input, button {
     font-size: 1.2em;
     padding: 10px;
     margin: 10px;
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.075);
+    border: none !important;
+  }
+
+  input:focus{
+    border: none !important;
   }
   
   button {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.075);
     color: white;
     border: none;
   }
