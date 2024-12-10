@@ -5,16 +5,14 @@ const apiUrl = 'https://hidden-harbor-87161-dd9f6998dbed.herokuapp.com';
 const codeUrl = apiUrl + '/api/codes';
 const mailUrl = apiUrl + '/api/decision';
 
-// Verifica si el código ingresado es válido
 function verificarCodigo() {
   const codigoIngresado = document.getElementById('codigo').value.trim();
 
-  // Send POST request with decision to backend
   fetch(codeUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': "SIPANDTEAKEY"
+      'x-api-key': process.env.API_KEY
     },
     body: JSON.stringify({
       code: codigoIngresado
@@ -51,7 +49,7 @@ function enviarRespuesta(decision) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${"SIPANDTEAKEY"}`
+      'Authorization': process.env.API_KEY
     },
     body: JSON.stringify({
       decision: decision,
